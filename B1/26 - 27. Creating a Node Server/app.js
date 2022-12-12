@@ -4,6 +4,9 @@ const http = require('http');
 // req: request, res: response
 const server = http.createServer((req, res) => {
   console.log(req);
+
+  // Lệnh thoát khỏi event loop của server
+  // process.exit();
 });
 
 //  lắng nghe port
