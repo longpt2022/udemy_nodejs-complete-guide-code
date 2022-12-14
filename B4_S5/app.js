@@ -1,9 +1,9 @@
 const http = require('http');
 
-// --- tạo server
-const server = http.createServer();
+const express = require('express');
 
-console.log(routes.someText);
+const app = express();
 
-//  lắng nghe port
+const server = http.createServer(app);
+
 server.listen(3000);
