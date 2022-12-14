@@ -1,3 +1,15 @@
 npm init
 
-npm install nodemon@1.18.3
+npm install nodemon@1.18.3 -save-dev
+
+
+// 52. Restarting the Debugger Automatically After Editing our App
+// Tự khởi động lại Debugger sau khi sửa ứng dụng
+
+// nên mở thư mục chính cần debub từ VScode (k bao gồm thư mục cha của thư mục chính)
+// "launch.json" add code
+      "restart": true,
+      "runtimeExecutable": "nodemon",
+      "console": "integratedTerminal"
+
+npm install nodemon@1.18.3 -g
