@@ -9,5 +9,8 @@
     "start-server": "node app.js"
   },
   "author": "Long Pham",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
 }
