@@ -1,2 +1,5 @@
 
 npm install –save ejs pug express-handlebars
+
+// Avoiding an Error
+npm install --save express-handlebars@3.0
