@@ -1,2 +1,5 @@
+ trong bài này chỉ cần cài pug
+npm install -save ejs pug
 
-npm install –save ejs pug express-handlebars
+ // hoặc có thể cài cả 3 cùng lúc
+npm install -save ejs pug express-handlebars
