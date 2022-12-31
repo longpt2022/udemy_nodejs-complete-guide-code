@@ -35,6 +35,8 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
+// Khi add 2 dòng dưới.
+// JS sẽ tự động tạo thêm các method liên quan (VD: createProduct())
 Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
 User.hasMany(Product);
 
