@@ -19,6 +19,17 @@ const shopRoutes = require('./routes/shop');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use((req, res, next) => {
+  // Nếu có ít nhất 1 user.
+  // findById() nhận "1" có nghĩa là nhận vào "true"
+  User.findById(1)
+    .then(user => {
+      req.user = user;
+      next();
+    })
+    .catch(err => console.log(err));
+});
+
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
@@ -28,9 +39,22 @@ Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
 User.hasMany(Product);
 
 sequelize
-  .sync({ force: true })
+  // có { force: true } thì database sẽ xóa toàn bộ data và tạo mới lại bảng
+  // .sync({ force: true })
+  .sync()
   .then(result => {
+    return User.findById(1);
     // console.log(result);
+    app.listen(3000);
+  })
+  .then(user => {
+    if (!user) {
+      return User.create({ name: 'Long', email: 'test@test.com' });
+    }
+    return user;
+  })
+  .then(user => {
+    // console.log(user);
     app.listen(3000);
   })
   .catch(err => {
