@@ -53,8 +53,8 @@ Order.belongsToMany(Product, { through: OrderItem });
 
 sequelize
   // có { force: true } thì database sẽ xóa toàn bộ data và tạo mới lại bảng
-  .sync({ force: true })
-  // .sync()
+  // .sync({ force: true })
+  .sync()
   .then(result => {
     return User.findById(1);
     // console.log(result);
