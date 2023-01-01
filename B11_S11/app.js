@@ -48,8 +48,8 @@ Product.belongsToMany(Cart, { through: CartItem });
 
 sequelize
   // có { force: true } thì database sẽ xóa toàn bộ data và tạo mới lại bảng
-  .sync({ force: true })
-  // .sync()
+  // .sync({ force: true })
+  .sync()
   .then(result => {
     return User.findById(1);
     // console.log(result);
@@ -63,6 +63,9 @@ sequelize
   })
   .then(user => {
     // console.log(user);
+    user.createCart();
+  })
+  .then(cart => {
     app.listen(3000);
   })
   .catch(err => {
