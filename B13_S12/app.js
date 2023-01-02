@@ -23,7 +23,7 @@ app.use((req, res, next) => {
   //  Tạo user mới trên mongoDB compass để lấy được Id truyền vào findById()
   User.findById('63b2973cb766ab62a39abb0e')
     .then(user => {
-      req.user = user;
+      req.user = new User(user.name, user.email, user.cart, user._id);
       next();
     })
     .catch(err => console.log(err));
