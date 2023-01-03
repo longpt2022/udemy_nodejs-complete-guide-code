@@ -78,7 +78,10 @@ exports.postEditProduct = (req, res, next) => {
 
 exports.getProducts = (req, res, next) => {
   Product.find()
+    // .select('title price -_id')  //- Chọn ra những trường sẽ được fetch
+    // .populate('userId', 'name email') //- lấy chi tiết của trường
     .then(products => {
+      console.log(products);
       res.render('admin/products', {
         prods: products,
         pageTitle: 'Admin Products',
